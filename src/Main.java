@@ -66,15 +66,29 @@ public class Main {
 
                     case 4:
                         // Separa i caratteri di una stringa con virgole, esce quando l'utente digita ":q"
-                        System.out.println("Inserisci una stringa da separare (digita ':q' per uscire):");
+                        System.out.println("Inserisci una stringa da separare oppure digita ':q' per uscire:");
                         String inputStr;
+                        // Ciclo per consentire all'utente di inserire più stringhe fino a che non digita ':q
                         while (true) {
                             inputStr = sc.nextLine();
+
                             if (inputStr.equals(":q")) { // Uscita dal ciclo se viene inserito ":q"
                                 break;
                             }
-                            String separati = SeparatoreStringa.separaCaratteri(inputStr);
-                            System.out.println(separati);
+                            String separata = SeparatoreStringa.separaCaratteri(inputStr);
+                            System.out.println(separata);
+
+                            System.out.println("Vuoi inserire un'altra stringa da separare? (s/n) (oppure digita ':q' per uscire)");
+                            String risposta = sc.nextLine();
+
+
+                            if (risposta.equalsIgnoreCase("s")) {
+                                // Mostro di nuovo il messaggio di richiesta
+                                System.out.println("Inserisci una nuova stringa da separare (digita ':q' per uscire):");
+                            } else {
+
+                                break;
+                            }
                         }
                         break;
 
